@@ -3,10 +3,16 @@ name: Upgrade Tag Version
 on:
   pull_request:
     types: [closed]
+  push:
+    branches:
+      - master
 
 jobs:
   upgrade-tag-version:
-    runs-on: ubuntu-latest
+    runs-on: 
+      - self-hosted
+      - refarch
+      - master
 
     steps:
     - name: Checkout Code
